@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Webpage</title>
+  </head>
+
+  <body>
+    <h1>This is Registration Page</h1>
+	
+	<div th:if="${successmsg}">
+		<h2 style="color:green" th:text="${successmsg}"></h2>
+	</div>
+	<div th:if="${errormsg}">
+		<h2 style="color:red" th:text="${errormsg}"></h2>
+	</div>
+	<form th:action="@{/regForm}" th:object="${std}" method="post">
+		Name :<input type="text" th:field="*{name}"><br></br>
+		Email :<input type="text" th:field="*{email}"><br></br>
+		Password :<input type="password" th:field="*{password}"><br></br>
+		Gender :<input type="text" th:field="*{gender}"><br></br>
+		City :<input type="text" th:field="*{city}"><br></br>
+		<input type="submit" value="Register" /><br></br>
+	</form><br></br>
+	
+	
+	If Already registered .. <a href="/loginPage">Click here to login</a>
+  </body>
+</html>
